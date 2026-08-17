@@ -37,6 +37,8 @@ The purpose of this User Guide is to give instructions on how to operate the MCP
 The reader is expected to be familiar with the concepts of MCP.
 For more information about MCP, please visit the official homepage: https://maritimeconnectivity.net
 
+#NB! This manual is currently being updated, so the information written here might not be up-to-date.#
+
 [[general-focus-of-the-mcp-management-portal]]
 == General focus of the MCP Management Portal
 
