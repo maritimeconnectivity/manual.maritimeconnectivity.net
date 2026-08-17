@@ -2,11 +2,13 @@
 
 if [ "$1" = "pdf" ]; then
     cd asciidoc
-    asciidoctor-pdf -r asciidoctor-diagram manual.asciidoc -D ../target -a imagesdir=../images/
+    asciidoctor-pdf manual.asciidoc -D ../target -a imagesdir=../images/
     cd ..
     exit
 elif [ "$1" = "html" ]; then
-    asciidoctor -r asciidoctor-diagram asciidoc/manual.asciidoc -D target
+    asciidoctor asciidoc/manual.asciidoc -D target
+    mkdir -p target/images
+    cp images/*.png target/images/
     exit
 elif [ "$1" = "site" ]; then
     echo "Checking for changes to the manual"
@@ -16,7 +18,7 @@ elif [ "$1" = "site" ]; then
         exit 1
     fi
     rm -rf target/
-    asciidoctor -r asciidoctor-diagram asciidoc/manual.asciidoc -D target
+    asciidoctor asciidoc/manual.asciidoc -D target
     mkdir -p target/images
     cp images/*.png target/images/
     
