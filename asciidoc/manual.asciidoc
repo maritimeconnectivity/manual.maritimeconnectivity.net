@@ -158,8 +158,9 @@ To create a Vessel or Device, click the "+" in the list.
 
 image:image14.png[image,width=469,height=425]
 
-Fill out the form and click "__Register Device/Vessel__".
+Fill out the form and click "__Submit__".
 The "__Permissions__" field is explained in depth in the <<permissions>> section of this guide.
+The "__Subsidiary MRN__" field is used to provide an additional MRN of the entity that it might have in another domain or context.
 
 image:image15.png[image,width=444,height=402]
 
