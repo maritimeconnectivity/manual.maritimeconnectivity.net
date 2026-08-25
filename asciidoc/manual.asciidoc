@@ -167,7 +167,7 @@ image:image15.png[image,width=444,height=402]
 [[update]]
 ==== Update
 
-To create a Vessel or Device, choose it in the list and click the "__Update__" button on the details page.
+To update a Vessel or Device, choose it in the list and click the "__Edit__" button on the details page.
 
 image:image16.png[image,width=441,height=449]
 
