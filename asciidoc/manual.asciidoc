@@ -37,7 +37,7 @@ The purpose of this User Guide is to give instructions on how to operate the MCP
 The reader is expected to be familiar with the concepts of MCP.
 For more information about MCP, please visit the official homepage: https://maritimeconnectivity.net
 
-#NB! This manual is currently being updated, so the information written here might not be up-to-date.#
+#**NB!** This manual is currently being updated, so the information written here might not be up-to-date.#
 
 [[general-focus-of-the-mcp-management-portal]]
 == General focus of the MCP Management Portal
@@ -113,6 +113,7 @@ image:image9.png[image,width=161,height=385]
 
 The following subsections will explain how each entity is managed.
 
+////
 [[my-organization]]
 === My Organization
 
@@ -139,6 +140,7 @@ Not yet implemented.
 ==== Identity Provider information
 
 Not yet implemented.
+////
 
 [[vessels-devices]]
 === Vessels & Devices
