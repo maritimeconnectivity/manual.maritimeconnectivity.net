@@ -198,28 +198,28 @@ Users can authenticate using the Openid Connect Identity Provider, or use a cert
 If an organization is federated into MCP, you do not need to create users! +
 The users will automatically be created the first time they log in on a webpage that uses MCP, such as the MCP Management Portal.
 
-If an organization is not federated into MCP and is using the "__ProjectTestUsers__" Identity Provider, users must be created manually in the Management Portal.
-When the user has been created, he/she will receive an email with instructions for how to log in with a temporary password.
+If an organization is not federated into MCP and is using the "__Users__" Identity Provider, which is the default, users must be created manually in the Management Portal.
+When the user has been created, they will receive an email with instructions for how to log in with a temporary password.
 
 [[update-1]]
 ==== Update
 
 When an organization is federated into MCP, _users are automatically created and updated_ when they log in on a webpage that uses MCP, such as the MC Management Portal.
 
-In the case that an organization is not federated into MCP, but is using the "__ProjectTestUsers__" Identity Provider, users must be updated manually in the Management Portal. +
-Updating the password of a user cannot be done in the portal, this must be done from the "__ProjectTestUsers__" Identity Provider.
+In the case that an organization is not federated into MCP, but is using the "__Users__" Identity Provider, users must be updated manually in the Management Portal. +
+Updating the password of a user cannot be done in the portal, this must be done from the "__Users__" Identity Provider.
 
 [[delete-1]]
 ==== Delete
 
-For organizations, which is federated into MCP, users are automatically created or updated when they log in on a webpage that uses MCP, such as the MCP Management Portal.
+For organizations that are federated into MCP, users are automatically created or updated when they log in on a webpage that uses MCP, such as the MCP Management Portal.
 Therefore, deleting users does not make much sense for federated organizations, unless it is necessary to clean up the user list, or to remove all the users’ certificates.
 
-If an organization is not federated into MCP and is using the "__ProjectTestUsers__" Identity Provider, users can be deleted from the portal.
-This will also remove the user from the "__ProjectTestUsers__" Identity Provider.
+If an organization is not federated into MCP and is using the "__Users__" Identity Provider, users can be deleted from the portal.
+This will also remove the user from the "__Users__" Identity Provider.
 The user will no longer be able to log in to access MCP services.
 
-_When a user is deleted all of the user’s certificates are revoked._
+_When a user is deleted all of the users certificates are revoked._
 
 [[permissions]]
 === Permissions
@@ -228,19 +228,21 @@ _When a user is deleted all of the user’s certificates are revoked._
 As an example, an organization could wish to grant extended access to a service for all their pilots from a single point of control.
 The permissions field is a way to facilitate this.
 
-For a more thorough explanation and example, please refer to the http://developers.maritimeconnectivity.net/identity/index.html#authorization[online documentation for authorization in MCP.]
+The "Permissions" field is also used internally in the MIR to facilitate Role Based Access Control (RBAC). See <<access-roles>> and <<role-mappings>> for more information about this.
+
+For a more thorough explanation and example, please refer to the https://docs.maritimeconnectivity.net/en/latest/MIR.html#authorization-in-mir[online documentation for authorization in MCP.]
 
 [[certificates]]
 === Certificates
 
-Certificates can be issued on all entities in MCP (e.g. Devices, Vessels, Users, Organizations, Services).
-For a better understanding of how certificates is used in MCP and which parameters is included, please refer to the http://developers.maritimeconnectivity.net/identity/index.html#pki-and-x-509-certificates[online documentation].
+Certificates can be issued for all entities in the MIR.
+For a better understanding of how certificates are used in MCP and which parameters are included, please refer to the https://docs.maritimeconnectivity.net/en/latest/MIR.html#mcp-certificate[online documentation].
 
 [[information-in-the-certificate]]
 ==== Information in the certificate
 
-In the certificate, there are several information’s about the entity.
-Please refer to the http://developers.maritimeconnectivity.net/identity/index.html#certificate-attributes[online documentation].
+In the certificate, there are multiple about the entity, such as MRN, name, organization, etc.
+Please refer to the https://docs.maritimeconnectivity.net/en/latest/MIR.html#mcp-certificate[online documentation].
 
 [[issuing-a-certificate]]
 ==== Issuing a certificate
@@ -327,6 +329,9 @@ image:certificate-revoke2.png[]
 The certificate will now have been revoked and the certificate will be marked as such in the certificate list.
 
 image:certificate-revoke3.png[]
+
+[[role-mappings]]
+=== Role Mappings
 
 [[managing-the-service-registry]]
 == Managing the Service Registry
