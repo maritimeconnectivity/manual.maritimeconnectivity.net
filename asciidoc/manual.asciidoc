@@ -251,19 +251,15 @@ On every entity details page, there is a certificate section.
 This section is the same component for all entities.
 Therefore, the description and examples applies for all.
 
-To issue a new certificate, click on the "__Issue new Certificate__" button.
+To issue a new certificate, click on the "__Add__" button.
 
 image:image20.png[image,width=385,height=388]
-
-Click on "__Issue Certificate__".
-
-image:image21.png[image,width=369,height=213]
 
 And that is it.
 A certificate has been issued and is ready for download.
 
-When you download you will receive a zip file that contains public key, private key and certificate in PEM format, and the certificate in .p12 and .jks keystores.
-The password for the keystores are written in a .txt file that is also contained in the zip file.
+When you download you will receive a zip file that contains public key, private key and certificate in PEM format, and the certificate in a .p12 keystore.
+The password for the keystore is written in a .txt file that is also contained in the zip file.
 
 image:image22.png[image,width=374,height=148]
 
