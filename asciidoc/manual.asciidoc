@@ -313,12 +313,12 @@ Then locate the keystore you saved, load it into your application and you should
 [[revoking-a-certificate]]
 ==== Revoking a certificate
 
-When a certificate needs to be revoked, find the relevant user/vessel/device/service and the certificate that should be revoked at click on "__Revoke__".
+When a certificate needs to be revoked, find the relevant user/vessel/device/service and the certificate that should be revoked and click on "__Revoke__".
 
 image:certificate-revoke1.png[]
 
 This will show a window where you will have to choose a reason and a date for the revocation in the selectors.
-Once these has been entered you can click "__Revoke__".
+Once these have been entered you can click "__Revoke__".
 
 image:certificate-revoke2.png[]
 
