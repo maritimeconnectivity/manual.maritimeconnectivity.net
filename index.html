@@ -461,6 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#users">5.2. Users</a></li>
 <li><a href="#permissions">5.3. Permissions</a></li>
 <li><a href="#certificates">5.4. Certificates</a></li>
+<li><a href="#role-mappings">5.5. Role Mappings</a></li>
 </ul>
 </li>
 <li><a href="#managing-the-service-registry">6. Managing the Service Registry</a>
@@ -583,7 +584,7 @@ The organization will be validated and approved by the MCP Consortium Secretaria
 <div class="sect2">
 <h3 id="access-roles"><a class="anchor" href="#access-roles"></a><a class="link" href="#access-roles">4.3. Access Roles</a></h3>
 <div class="paragraph">
-<p>The MCP Management Portal has a number of different roles, which are based on the <a href="https://docs.maritimeconnectivity.net/en/latest/MIR.html#authorization-in-mir">role hierarchy</a> that is defined in the MIR.</p>
+<p>The MCP Management Portal has a number of different roles, which are based on the <a href="https://docs.maritimeconnectivity.net/en/latest/MIR.html#authorization-in-mir">role hierarchy</a> that is defined in the MIR. The <a href="#role-mappings">Role Mappings</a> section will go into more detail about how to manage these roles for an organization.</p>
 </div>
 </div>
 </div>
@@ -671,8 +672,8 @@ Users can authenticate using the Openid Connect Identity Provider, or use a cert
 The users will automatically be created the first time they log in on a webpage that uses MCP, such as the MCP Management Portal.</p>
 </div>
 <div class="paragraph">
-<p>If an organization is not federated into MCP and is using the "<em>ProjectTestUsers</em>" Identity Provider, users must be created manually in the Management Portal.
-When the user has been created, he/she will receive an email with instructions for how to log in with a temporary password.</p>
+<p>If an organization is not federated into MCP and is using the "<em>Users</em>" Identity Provider, which is the default, users must be created manually in the Management Portal.
+When the user has been created, they will receive an email with instructions for how to log in with a temporary password.</p>
 </div>
 </div>
 <div class="sect3">
@@ -681,23 +682,23 @@ When the user has been created, he/she will receive an email with instructions f
 <p>When an organization is federated into MCP, <em>users are automatically created and updated</em> when they log in on a webpage that uses MCP, such as the MC Management Portal.</p>
 </div>
 <div class="paragraph">
-<p>In the case that an organization is not federated into MCP, but is using the "<em>ProjectTestUsers</em>" Identity Provider, users must be updated manually in the Management Portal.<br>
-Updating the password of a user cannot be done in the portal, this must be done from the "<em>ProjectTestUsers</em>" Identity Provider.</p>
+<p>In the case that an organization is not federated into MCP, but is using the "<em>Users</em>" Identity Provider, users must be updated manually in the Management Portal.<br>
+Updating the password of a user cannot be done in the portal, this must be done from the "<em>Users</em>" Identity Provider.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-1"><a class="anchor" href="#delete-1"></a><a class="link" href="#delete-1">5.2.3. Delete</a></h4>
 <div class="paragraph">
-<p>For organizations, which is federated into MCP, users are automatically created or updated when they log in on a webpage that uses MCP, such as the MCP Management Portal.
+<p>For organizations that are federated into MCP, users are automatically created or updated when they log in on a webpage that uses MCP, such as the MCP Management Portal.
 Therefore, deleting users does not make much sense for federated organizations, unless it is necessary to clean up the user list, or to remove all the users’ certificates.</p>
 </div>
 <div class="paragraph">
-<p>If an organization is not federated into MCP and is using the "<em>ProjectTestUsers</em>" Identity Provider, users can be deleted from the portal.
-This will also remove the user from the "<em>ProjectTestUsers</em>" Identity Provider.
+<p>If an organization is not federated into MCP and is using the "<em>Users</em>" Identity Provider, users can be deleted from the portal.
+This will also remove the user from the "<em>Users</em>" Identity Provider.
 The user will no longer be able to log in to access MCP services.</p>
 </div>
 <div class="paragraph">
-<p><em>When a user is deleted all of the user’s certificates are revoked.</em></p>
+<p><em>When a user is deleted all of the users certificates are revoked.</em></p>
 </div>
 </div>
 </div>
@@ -709,20 +710,23 @@ As an example, an organization could wish to grant extended access to a service 
 The permissions field is a way to facilitate this.</p>
 </div>
 <div class="paragraph">
-<p>For a more thorough explanation and example, please refer to the <a href="http://developers.maritimeconnectivity.net/identity/index.html#authorization">online documentation for authorization in MCP.</a></p>
+<p>The "Permissions" field is also used internally in the MIR to facilitate Role Based Access Control (RBAC). See <a href="#access-roles">Access Roles</a> and <a href="#role-mappings">Role Mappings</a> for more information about this.</p>
+</div>
+<div class="paragraph">
+<p>For a more thorough explanation and example, please refer to the <a href="https://docs.maritimeconnectivity.net/en/latest/MIR.html#authorization-in-mir">online documentation for authorization in MCP.</a></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="certificates"><a class="anchor" href="#certificates"></a><a class="link" href="#certificates">5.4. Certificates</a></h3>
 <div class="paragraph">
-<p>Certificates can be issued on all entities in MCP (e.g. Devices, Vessels, Users, Organizations, Services).
-For a better understanding of how certificates is used in MCP and which parameters is included, please refer to the <a href="http://developers.maritimeconnectivity.net/identity/index.html#pki-and-x-509-certificates">online documentation</a>.</p>
+<p>Certificates can be issued for all entities in the MIR.
+For a better understanding of how certificates are used in MCP and which parameters are included, please refer to the <a href="https://docs.maritimeconnectivity.net/en/latest/MIR.html#mcp-certificate">online documentation</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="information-in-the-certificate"><a class="anchor" href="#information-in-the-certificate"></a><a class="link" href="#information-in-the-certificate">5.4.1. Information in the certificate</a></h4>
 <div class="paragraph">
-<p>In the certificate, there are several information’s about the entity.
-Please refer to the <a href="http://developers.maritimeconnectivity.net/identity/index.html#certificate-attributes">online documentation</a>.</p>
+<p>In the certificate, there are multiple about the entity, such as MRN, name, organization, etc.
+Please refer to the <a href="https://docs.maritimeconnectivity.net/en/latest/MIR.html#mcp-certificate">online documentation</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -733,24 +737,18 @@ This section is the same component for all entities.
 Therefore, the description and examples applies for all.</p>
 </div>
 <div class="paragraph">
-<p>To issue a new certificate, click on the "<em>Issue new Certificate</em>" button.</p>
+<p>To issue a new certificate, click on the "<em>Add</em>" button.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/image20.png" alt="image" width="385" height="388"></span></p>
-</div>
-<div class="paragraph">
-<p>Click on "<em>Issue Certificate</em>".</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/image21.png" alt="image" width="369" height="213"></span></p>
 </div>
 <div class="paragraph">
 <p>And that is it.
 A certificate has been issued and is ready for download.</p>
 </div>
 <div class="paragraph">
-<p>When you download you will receive a zip file that contains public key, private key and certificate in PEM format, and the certificate in .p12 and .jks keystores.
-The password for the keystores are written in a .txt file that is also contained in the zip file.</p>
+<p>When you download you will receive a zip file that contains public key, private key and certificate in PEM format, and the certificate in a .p12 keystore.
+The password for the keystore is written in a .txt file that is also contained in the zip file.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="images/image22.png" alt="image" width="374" height="148"></span></p>
@@ -762,24 +760,48 @@ The password for the keystores are written in a .txt file that is also contained
 <div class="sect3">
 <h4 id="revoking-a-certificate"><a class="anchor" href="#revoking-a-certificate"></a><a class="link" href="#revoking-a-certificate">5.4.3. Revoking a certificate</a></h4>
 <div class="paragraph">
-<p>When a certificate needs to be revoked, find the relevant user/vessel/device/service and the certificate that should be revoked at click on "<em>Revoke</em>".</p>
+<p>When a certificate needs to be revoked, find the relevant user/vessel/device/service and the certificate that should be revoked and click on "<em>Revoke</em>".</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/certificate-revoke1.png" alt="certificate revoke1"></span></p>
+<p><span class="image"><img src="images/certificate-revoke1.png" alt="image" width="384"></span></p>
 </div>
 <div class="paragraph">
 <p>This will show a window where you will have to choose a reason and a date for the revocation in the selectors.
-Once these has been entered you can click "<em>Revoke</em>".</p>
+Once these have been entered you can click "<em>Revoke</em>".</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/certificate-revoke2.png" alt="certificate revoke2"></span></p>
+<p><span class="image"><img src="images/certificate-revoke2.png" alt="image" width="384"></span></p>
 </div>
 <div class="paragraph">
 <p>The certificate will now have been revoked and the certificate will be marked as such in the certificate list.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/certificate-revoke3.png" alt="certificate revoke3"></span></p>
+<p><span class="image"><img src="images/certificate-revoke3.png" alt="image" width="384"></span></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="role-mappings"><a class="anchor" href="#role-mappings"></a><a class="link" href="#role-mappings">5.5. Role Mappings</a></h3>
+<div class="paragraph">
+<p>As mentioned in the <a href="#access-roles">Access Roles</a> the MCP Management Portal and the MIR use roles to determine what users are allowed to do.
+This is done by mapping so-called <em>permissions</em>, which can be assigned to users, to one or more roles.
+In order to create such a role mapping, go to the "<em>Roles</em>" section and click on "<em>Add</em>".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/role-mapping1.png" alt="image" width="384"></span></p>
+</div>
+<div class="paragraph">
+<p>This will show a form where you will have to choose a role that the mapping will map to and a permission that it will map from.
+Once these have been filled out, click on "<em>Submit</em>".</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/role-mapping2.png" alt="image" width="384"></span></p>
+</div>
+<div class="paragraph">
+<p>The newly created role mapping can now be used to assign a role to a user.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/role-mapping3.png" alt="image" width="384"></span></p>
 </div>
 </div>
 </div>
@@ -906,7 +928,7 @@ Should this not be relevant for your service, simply leave the fields empty.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-25 16:00:28 +0200
+Last updated 2026-09-07 16:49:35 +0200
 </div>
 </div>
 <script type="text/x-mathjax-config">
