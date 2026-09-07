@@ -102,7 +102,7 @@ You will be redirected to the MCP Management Portal with access.
 [[access-roles]]
 === Access Roles
 
-The MCP Management Portal has a number of different roles, which are based on the https://docs.maritimeconnectivity.net/en/latest/MIR.html#authorization-in-mir[role hierarchy] that is defined in the MIR.
+The MCP Management Portal has a number of different roles, which are based on the https://docs.maritimeconnectivity.net/en/latest/MIR.html#authorization-in-mir[role hierarchy] that is defined in the MIR. The <<role-mappings>> section will go into more detail about how to manage these roles for an organization.
 
 [[managing-the-identity-registry]]
 == Managing the Identity Registry
@@ -315,19 +315,34 @@ Then locate the keystore you saved, load it into your application and you should
 
 When a certificate needs to be revoked, find the relevant user/vessel/device/service and the certificate that should be revoked and click on "__Revoke__".
 
-image:certificate-revoke1.png[]
+image:certificate-revoke1.png[image,width=384]
 
 This will show a window where you will have to choose a reason and a date for the revocation in the selectors.
 Once these have been entered you can click "__Revoke__".
 
-image:certificate-revoke2.png[]
+image:certificate-revoke2.png[image,width=384]
 
 The certificate will now have been revoked and the certificate will be marked as such in the certificate list.
 
-image:certificate-revoke3.png[]
+image:certificate-revoke3.png[image,width=384]
 
 [[role-mappings]]
 === Role Mappings
+
+As mentioned in the <<access-roles>> the MCP Management Portal and the MIR use roles to determine what users are allowed to do.
+This is done by mapping so-called __permissions__, which can be assigned to users, to one or more roles.
+In order to create such a role mapping, go to the "__Roles__" section and click on "__Add__".
+
+image:role-mapping1.png[image,width=384]
+
+This will show a form where you will have to choose a role that the mapping will map to and a permission that it will map from.
+Once these have been filled out, click on "__Submit__".
+
+image:role-mapping2.png[image,width=384]
+
+The newly created role mapping can now be used to assign a role to a user.
+
+image:role-mapping3.png[image,width=384]
 
 [[managing-the-service-registry]]
 == Managing the Service Registry
