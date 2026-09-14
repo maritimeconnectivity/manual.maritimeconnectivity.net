@@ -374,19 +374,19 @@ In the menu, the "__Service Registry__" section contains "__Services__" (the lis
 To view the registered Services, click "__Services__" in the menu and a list of Services appears.
 Click on any row in the list to view that Service instance.
 
-image:service-instance-list.png[image,width=700]
+image:service-instance-list.png[image,width=900]
 
 In the details page, you can see the full set of data for the Service instance, including its geographical coverage area on a map.
 If the Service was registered from a G1128 XML document, you can view the raw XML via the "__View XML__" button next to "Instance as XML", and if a human-readable document was attached, it can be downloaded via "Instance as document".
 
-image:service-instance-view.png[image,width=700]
+image:service-instance-view.png[image,width=900]
 
 [[createregister-2]]
 ==== Create/Register
 
 To register a new Service instance, click "__Services__" in the menu and then click the "__+ Add__" button.
 
-image:service-instance-new1.png[image,width=700]
+image:service-instance-new1.png[image,width=900]
 
 There are two ways to provide the data for the new Instance:
 
@@ -397,7 +397,7 @@ You can also attach a human-readable document describing the Instance under "Ins
 * Click "__Create with G1128 XML__" to instead paste in a complete G1128-compliant XML description of the Instance, and click "__Verify__".
 If the XML is valid, the form fields are automatically filled in from its content, and the XML itself is stored alongside the Instance so it can be viewed later from the details page.
 
-image:service-instance-new2.png[image,width=700]
+image:service-instance-new2.png[image,width=900]
 
 When all required fields are filled in (or the XML has been successfully verified), click the "__Submit__" button to register the Instance.
 
@@ -407,9 +407,9 @@ When all required fields are filled in (or the XML has been successfully verifie
 To update a Service instance, open it from the "__Services__" list and click "__Edit__".
 The same form as for registration is shown, pre-filled with the current data, and you can either edit the fields directly or click "__Edit with G1128 XML__" to replace the data by pasting in and verifying a new G1128 XML document.
 
-image:service-instance-edit1.png[image,width=700]
+image:service-instance-edit1.png[image,width=900]
 
-image:service-instance-edit-xml1.png[image,width=700]
+image:service-instance-edit-xml1.png[image,width=900]
 
 When you are done, click "__Submit__" to save the changes, or "__Cancel__" to discard them.
 
@@ -424,20 +424,31 @@ CAUTION: Deleting an Instance takes effect immediately - there is no confirmatio
 === Searching the Service Registry
 
 To search for services - including those registered by other organizations - click "__Search__" in the "__Service Registry__" menu section.
-The search follows the IEC 63173-2 SECOM standard.
+The search follows the IEC 63173-2 SECOM and IALA G1191 standards.
 
-image:service-search1.png[image,width=700]
+image:service-search1.png[image,width=900]
 
 First, choose the search scope: "__Local MSR only__" searches only the MSR your organization is registered with, while "__Global (Includes other MSRs)__" also includes results from other connected MSRs.
+The first time you perform a search, you may be asked to create a certificate password; this password is used to encrypt, in your browser, the certificate used to sign your SECOM search requests, and is required before any search - local or global - will return results.
+
+When searching with "__Global (Includes other MSRs)__" selected, the Management Portal first shows the results from your own MSR, then queries the other connected MSRs in the background - a "__Fetching additional global results...__" indicator is shown while this is in progress.
+As results come in from other MSRs, they are added to the result list, and the "__Source MSR__" column shows which MSR each result came from, so you can tell local results apart from those found elsewhere.
+
+image:service-search-global.png[image,width=900]
 
 Next, build a query by selecting a field from the "__Add query__" drop-down, such as Name, Status, Version, Keywords, Description, Data product type, Specification ID, Design ID, Instance ID (MRN), MMSI, IMO number, Service type, UN/LOCODE or Endpoint URI, and entering a value to match against it.
 Multiple query fields can be added and combined.
 
-image:service-search2.png[image,width=700]
+image:service-search2.png[image,width=900]
 
-You can also draw a geographical area of interest directly on the map to limit the search to services covering that area, and the "__Presets__" section offers a few ready-made example queries to get started with.
+You can also draw a geographical area of interest directly on the map, using the drawing tools on the left of the map, to limit the search to services whose coverage area overlaps it.
+Once drawn, the shape is added to the query as a "__Geometry__" entry, alongside any other query fields you have added.
 
-image:service-search3.png[image,width=700]
+image:service-search-geometry.png[image,width=900]
+
+The "__Presets__" section offers a few ready-made example queries to get started with.
+
+image:service-search3.png[image,width=900]
 
 Once your query is ready, click "__Search__" to run it, or "__Clear all__" to reset the form.
 Search results are listed below the map; clicking a result opens it in read-only view, with a "__Move to Detail Page__" button that becomes available when the result belongs to your own organization, taking you to the full editable details page for that Instance.
