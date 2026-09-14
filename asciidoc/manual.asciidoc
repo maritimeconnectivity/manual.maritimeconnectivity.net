@@ -347,79 +347,97 @@ image:role-mapping3.png[image,width=384]
 [[managing-the-service-registry]]
 == Managing the Service Registry
 
-The Service Registry consists of 3 levels:
+The Maritime Service Registry (MSR) is a registry where maritime stakeholders can register services for others to discover.
+Services can be searched for using parameters such as provider, service type, MRN and geographical coverage area.
+
+Conceptually, the underlying G1128 standard describes a service on 3 levels:
 
 * Specification: Technology-agnostic logical level (What)
 * Technical Design: Technology level (How)
 * Instance: The actual service implementation (Where)
 
-For more information of the 3 levels and how they are connected, please refer to the online documentation at http://maritimeconnectivity.net or the "__How To?__" page in the MCP Management Portal.
+For more information of the 3 levels and how they are connected, please refer to the online documentation at http://maritimeconnectivity.net.
+In the MCP Management Portal, however, only the Instance level is directly managed: you register a service instance, and it optionally references the MRNs of the Specification and Technical Design it implements.
+Specification and Technical Design are otherwise only used as search criteria (see <<searching-the-service-registry>>).
 
-image:image23.png[image,width=784,height=399]
-
-The following subsections will describe each level in the service registry and how to manage.
-
-Note: At the moment, service data is shown for all organizations with no possibility to filter or search.
-In the future, there will be filtering and searching options.
-Service data for other organizations is always in read-only mode though and will never show Certificates - regardless of the user’s administrative rights.
+Note: Service data is shown for all organizations with no possibility to filter by organization on the "__Services__" list.
+Service data for other organizations than your own is always shown in read-only mode, and it is never possible to issue Certificates for another organization's services - regardless of the user's administrative rights.
 
 [[service-instance]]
 === Service Instance
 
+In the menu, the "__Service Registry__" section contains "__Services__" (the list of registered service instances) and "__Search__" (see <<searching-the-service-registry>>).
+
 [[view-and-download-2]]
-==== View and download
+==== View
 
-To view an Instance, click "__Instances__" in the menu and a list of Instances appear.
-Click on any column of a row in the list to view that Instance.
+To view the registered Services, click "__Services__" in the menu and a list of Services appears.
+Click on any row in the list to view that Service instance.
 
-image:image34.png[image,width=903,height=337]
+image:service-instance-list.png[image,width=700]
 
-You can also get to the Instance by clicking any column of a row if you have a Technical Design in view.
+In the details page, you can see the full set of data for the Service instance, including its geographical coverage area on a map.
+If the Service was registered from a G1128 XML document, you can view the raw XML via the "__View XML__" button next to "Instance as XML", and if a human-readable document was attached, it can be downloaded via "Instance as document".
 
-image:image35.png[image,width=883,height=484]
-
-In the details page, you can see a subset of the Instance data.
-To view all data, you can download the actual documents that were uploaded upon the registration of the Instance.
-
-image:image36.png[image,width=771,height=325]
+image:service-instance-view.png[image,width=700]
 
 [[createregister-2]]
 ==== Create/Register
 
-To register a new Instance, you need to select the Technical Design you want the Instance to implement.
-When the Technical Design is selected, you should click on the "__Register new Instance__" at the Technical Design details page.
+To register a new Service instance, click "__Services__" in the menu and then click the "__+ Add__" button.
 
-image:image37.png[image,width=934,height=455]
+image:service-instance-new1.png[image,width=700]
 
-Now you can upload 2 documents (see online documentation for templates of the documents):
+There are two ways to provide the data for the new Instance:
 
-* An XML-file following the official template with machine readable information.
-This is a required document
-* A document in human readable format of the Instance.
-This is not required, but it is highly recommended to provide
+* Fill in the form directly. The required fields are Name, Version, Status, Endpoint URI, Organization ID, Instance ID and Comment.
+The Instance ID must be a valid MRN (refer to the <<mrn-maritime-resource-name>> section of this guide).
+Optionally, you can also specify a Service type, a Data product type, the MRNs of the Technical Design it implements, and draw the service's geographical coverage area on the map.
+You can also attach a human-readable document describing the Instance under "Instance as document".
+* Click "__Create with G1128 XML__" to instead paste in a complete G1128-compliant XML description of the Instance, and click "__Verify__".
+If the XML is valid, the form fields are automatically filled in from its content, and the XML itself is stored alongside the Instance so it can be viewed later from the details page.
 
-When the XML-file is uploaded, there will be a validation of the Instance ID, which should be a MRN (refer to the <<mrn-maritime-resource-name>> section of this guide.
-An example MRN for DMA would be: _urn:mrn:mcl:service:instance:dma:nw-nm_
+image:service-instance-new2.png[image,width=700]
 
-When all is uploaded correctly, you can provide additional information to the service if you should need to issue certificates for the service later.
-This includes the field "Certificate Domain Name", where you should enter the name of the domain where the service will be hosted (e.g. Service.dma.dk) and the field "Permissions" which will also be embedded in the certificate.
-Should this not be relevant for your service, simply leave the fields empty.
-
-image:image38.png[image,width=521,height=710]
-
-When everything is OK, click the "__Register Instance__" button.
+When all required fields are filled in (or the XML has been successfully verified), click the "__Submit__" button to register the Instance.
 
 [[update-4]]
 ==== Update
 
-Not yet implemented
+To update a Service instance, open it from the "__Services__" list and click "__Edit__".
+The same form as for registration is shown, pre-filled with the current data, and you can either edit the fields directly or click "__Edit with G1128 XML__" to replace the data by pasting in and verifying a new G1128 XML document.
+
+image:service-instance-edit1.png[image,width=700]
+
+image:service-instance-edit-xml1.png[image,width=700]
+
+When you are done, click "__Submit__" to save the changes, or "__Cancel__" to discard them.
 
 [[delete-4]]
 ==== Delete
 
-Not yet implemented.
+A Service instance can be deleted either from its details page by clicking "__Delete__", or from the "__Services__" list by ticking the checkbox next to one or more rows and clicking "__Delete__" in the toolbar.
+
+CAUTION: Deleting an Instance takes effect immediately - there is no confirmation prompt, and the action cannot be undone from the Management Portal.
 
 [[searching-the-service-registry]]
 === Searching the Service Registry
 
-Not yet implemented.
+To search for services - including those registered by other organizations - click "__Search__" in the "__Service Registry__" menu section.
+The search follows the IEC 63173-2 SECOM standard.
+
+image:service-search1.png[image,width=700]
+
+First, choose the search scope: "__Local MSR only__" searches only the MSR your organization is registered with, while "__Global (Includes other MSRs)__" also includes results from other connected MSRs.
+
+Next, build a query by selecting a field from the "__Add query__" drop-down, such as Name, Status, Version, Keywords, Description, Data product type, Specification ID, Design ID, Instance ID (MRN), MMSI, IMO number, Service type, UN/LOCODE or Endpoint URI, and entering a value to match against it.
+Multiple query fields can be added and combined.
+
+image:service-search2.png[image,width=700]
+
+You can also draw a geographical area of interest directly on the map to limit the search to services covering that area, and the "__Presets__" section offers a few ready-made example queries to get started with.
+
+image:service-search3.png[image,width=700]
+
+Once your query is ready, click "__Search__" to run it, or "__Clear all__" to reset the form.
+Search results are listed below the map; clicking a result opens it in read-only view, with a "__Move to Detail Page__" button that becomes available when the result belongs to your own organization, taking you to the full editable details page for that Instance.
