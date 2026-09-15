@@ -251,7 +251,7 @@ Therefore, the description and examples applies for all.
 
 To issue a new certificate, click on the "__Add__" button.
 
-image:image20.png[image,width=385,height=388]
+image:image20.png[image,width=700]
 
 And that is it.
 A certificate has been issued and is ready for download.
@@ -259,7 +259,7 @@ A certificate has been issued and is ready for download.
 When you download you will receive a zip file that contains public key, private key and certificate in PEM format, and the certificate in a .p12 keystore.
 The password for the keystore is written in a .txt file that is also contained in the zip file.
 
-image:image22.png[image,width=374,height=148]
+image:image22.png[image,width=700]
 
 __NOTE__: It is very important that you download the certificate, because it is the only time, that you can download the public- and private key.
 
@@ -313,16 +313,16 @@ Then locate the keystore you saved, load it into your application and you should
 
 When a certificate needs to be revoked, find the relevant user/vessel/device/service and the certificate that should be revoked and click on "__Revoke__".
 
-image:certificate-revoke1.png[image,width=384]
+image:certificate-revoke1.png[image,width=700]
 
 This will show a window where you will have to choose a reason and a date for the revocation in the selectors.
 Once these have been entered you can click "__Revoke__".
 
-image:certificate-revoke2.png[image,width=384]
+image:certificate-revoke2.png[image,width=700]
 
 The certificate will now have been revoked and the certificate will be marked as such in the certificate list.
 
-image:certificate-revoke3.png[image,width=384]
+image:certificate-revoke3.png[image,width=700]
 
 [[role-mappings]]
 === Role Mappings
@@ -331,16 +331,16 @@ As mentioned in the <<access-roles>> the MCP Management Portal and the MIR use r
 This is done by mapping so-called __permissions__, which can be assigned to users, to one or more roles.
 In order to create such a role mapping, go to the "__Roles__" section and click on "__Add__".
 
-image:role-mapping1.png[image,width=384]
+image:role-mapping1.png[image,width=700]
 
 This will show a form where you will have to choose a role that the mapping will map to and a permission that it will map from.
 Once these have been filled out, click on "__Submit__".
 
-image:role-mapping2.png[image,width=384]
+image:role-mapping2.png[image,width=700]
 
 The newly created role mapping can now be used to assign a role to a user.
 
-image:role-mapping3.png[image,width=384]
+image:role-mapping3.png[image,width=700]
 
 [[managing-the-service-registry]]
 == Managing the Service Registry
